@@ -7,7 +7,8 @@
 
 COMP_CONT=$( fuel node | grep -e compute -e controller | awk '//{print $1}' );
 for i in $COMP_CONT; do
-	ssh node-$i "dpkg -i /root/patch/python-oslo.messaging_1.3.0-fuel5.1~mira5_all.deb"
+	# ssh node-$i "dpkg -i /root/patch/python-oslo.messaging_1.3.0-fuel5.1~mira5_all.deb"
+	ssh node-$i "dpkg -i /root/patch/python-oslo.messaging_1.3.1-fuel5.1.1~mira0_all.deb"
 	ssh node-$i "bash /root/script/restart-all.sh"
 done
 
